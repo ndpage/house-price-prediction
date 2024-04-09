@@ -14,8 +14,19 @@ print(data.head(5))
             Features
 '''
 
-# area,bedrooms,bathrooms,stories,mainroad,guestroom,basement,hotwaterheating,airconditioning,parking,prefarea,furnishingstatus
-X = data.drop(columns=['price','mainroad','guestroom','basement','hotwaterheating','airconditioning','parking','prefarea','furnishingstatus'])
+# Drop unused columns
+X_unused =  [
+  'price',
+  'mainroad',
+  'guestroom',
+  'basement',
+  'hotwaterheating',
+  'airconditioning',
+  'parking',
+  'prefarea',
+  'furnishingstatus'
+]
+X = data.drop(columns=X_unused)
 y = data['price']
 
 # Initialize and train the linear regression model
@@ -33,6 +44,7 @@ new_houses = [
   [1000, 2, 2, 1],
   ]  # Example features for a new house
 predicted_prices = model.predict(new_houses)
-print("Predicted price for the new houses: ")
-[print(house) for house in predicted_prices]
+print("\nPredicted price for the new houses: ")
+for house in predicted_prices:
+  print(f"\t{house}")
 
