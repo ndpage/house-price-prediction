@@ -3,6 +3,7 @@ import pandas as pd
 
 # Load the dataset (replace this with your dataset)
 data = pd.read_csv("house_prices.csv")
+print(data.head(5))
 
 # Split the data into features (X) and target variable (y)
 '''
@@ -23,7 +24,15 @@ model.fit(X, y)
 
 # Example prediction for a new house
 # area,bedrooms,bathrooms,stories,mainroad,guestroom,basement,hotwaterheating,airconditioning,parking,prefarea,furnishingstatus
-new_house = [[2500, 3, 2, 1]]  # Example features for a new house
-predicted_price = model.predict(new_house)
-print("Predicted price for the new house:", predicted_price[0])
+# House specs: [ area, bedrooms, bathrooms, stories ]
+new_houses = [
+  [2500, 3, 2, 1],
+  [5500, 6, 5, 2],
+  [1200, 3, 1.5, 1],
+  [3000, 4, 4, 2],
+  [1000, 2, 2, 1],
+  ]  # Example features for a new house
+predicted_prices = model.predict(new_houses)
+print("Predicted price for the new houses: ")
+[print(house) for house in predicted_prices]
 
