@@ -1,4 +1,8 @@
+
+"""Module providing a linear models."""
 from sklearn.linear_model import LinearRegression
+
+"""Module providing framework for reading and organizing data."""
 import pandas as pd
 
 # Load the dataset (replace this with your dataset)
@@ -33,10 +37,8 @@ y = data['price']
 model = LinearRegression()
 model.fit(X, y)
 
-# Example prediction for a new house
-# area,bedrooms,bathrooms,stories,mainroad,guestroom,basement,hotwaterheating,airconditioning,parking,prefarea,furnishingstatus
 # House specs: [ area, bedrooms, bathrooms, stories ]
-new_houses = [
+new_houses = [ 
   [2500, 3, 2, 1],
   [5500, 6, 5, 2],
   [1200, 3, 1.5, 1],
